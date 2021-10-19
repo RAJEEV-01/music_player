@@ -66,17 +66,16 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnRecyc
         return list;
     }
 
-
     @Override
     public void OnItemClick(int position) {
         Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+        Bundle bundle= new Bundle();
+        bundle.putParcelableArrayList("LIST", (ArrayList<? extends Parcelable>) list);
         AudioDetails item = list.get(position);
-        AudioDetails item1 = list.get(position+1);
-        intent.putExtra("data1",item1.getPath());
-        intent.putExtra("name1",item1.getName());
         intent.putExtra("data",item.getPath());
         intent.putExtra("name",item.getName());
         intent.putExtra("pos",position);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }

@@ -3,6 +3,8 @@ package com.example.music_player;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 public class AudioDetails implements Parcelable {
     private String name;
     private String path;
@@ -10,9 +12,6 @@ public class AudioDetails implements Parcelable {
     public AudioDetails(String name, String path) {
         this.name = name;
         this.path = path;
-    }
-    public AudioDetails(){
-        super();
     }
 
     protected AudioDetails(Parcel in) {
@@ -48,6 +47,7 @@ public class AudioDetails implements Parcelable {
         this.name = name;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -57,6 +57,5 @@ public class AudioDetails implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeString(path);
-
     }
 }
